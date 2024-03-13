@@ -1,4 +1,4 @@
-import _, { reverse } from "lodash"
+import _ from "lodash"
 import {
   splat,
   unsplat,
