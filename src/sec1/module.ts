@@ -12,13 +12,13 @@ export function unsplat(fun: (...args: any[]) => any) {
   }
 }
 
-const fail = (thing: string) => {
+export const fail = (thing: string) => {
   throw new Error(thing)
 }
-const warn = (thing: string) => {
+export const warn = (thing: string) => {
   console.log(["WARNING:", thing].join(" "))
 }
-const note = (thing: string) => {
+export const note = (thing: string) => {
   console.log(["NOTE:", thing].join(" "))
 }
 

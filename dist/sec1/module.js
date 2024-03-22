@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.executeIfHasField = exports.doWhen = exports.truthy = exports.existy = exports.mergeResults = exports.selectHairColor = exports.selectAges = exports.selectNames = exports.lameCSV = exports.compareLessOrEqual = exports.nth = exports.parseAge = exports.unsplat = exports.splat = void 0;
+exports.executeIfHasField = exports.doWhen = exports.truthy = exports.existy = exports.mergeResults = exports.selectHairColor = exports.selectAges = exports.selectNames = exports.lameCSV = exports.compareLessOrEqual = exports.nth = exports.parseAge = exports.note = exports.warn = exports.fail = exports.unsplat = exports.splat = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 function splat(fun) {
     return function (array) {
@@ -20,19 +20,22 @@ exports.unsplat = unsplat;
 const fail = (thing) => {
     throw new Error(thing);
 };
+exports.fail = fail;
 const warn = (thing) => {
     console.log(["WARNING:", thing].join(" "));
 };
+exports.warn = warn;
 const note = (thing) => {
     console.log(["NOTE:", thing].join(" "));
 };
+exports.note = note;
 const parseAge = (age) => {
     if (!lodash_1.default.isString(age))
-        fail("Expecting a string");
-    note("Attempting to parse an age");
+        (0, exports.fail)("Expecting a string");
+    (0, exports.note)("Attempting to parse an age");
     let a = parseInt(age, 10);
     if (lodash_1.default.isNaN(a)) {
-        warn(["Could not parse age:", age].join(" "));
+        (0, exports.warn)(["Could not parse age:", age].join(" "));
         a = 0;
     }
     return a;
@@ -40,7 +43,7 @@ const parseAge = (age) => {
 exports.parseAge = parseAge;
 const nth = (a, index) => {
     if (index < 0 || index >= a.length)
-        fail("Index out of bounds");
+        (0, exports.fail)("Index out of bounds");
     return a[index];
 };
 exports.nth = nth;
