@@ -44,13 +44,11 @@ init) => {
 exports.iterateUntil = iterateUntil;
 const always = (value) => () => value;
 exports.always = always;
-const invoker = (name, method) => {
-    return (target, ...args) => {
-        if (!(0, module_1.existy)(target))
-            (0, module_1.fail)("Must provide a target");
-        const targetMethod = target[name];
-        return (0, module_1.doWhen)((0, module_1.existy)(targetMethod) && method === targetMethod, () => targetMethod.apply(target, args));
-    };
+// メソッドを引数に取り、ターゲットとなるオブジェクトでそのメソッドを実行する関数を返す
+const invoker = (name, method) => (target, ...args) => {
+    if (!(0, module_1.existy)(target))
+        (0, module_1.fail)("Must provide a target");
+    return (0, module_1.doWhen)((0, module_1.existy)(target[name]) && method === target[name], () => target[name](args));
 };
 exports.invoker = invoker;
 // String.substr()は非推奨なので、String.substring()を使う

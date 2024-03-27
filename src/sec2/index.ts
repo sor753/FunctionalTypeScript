@@ -50,7 +50,7 @@ const sec2Modules = () => {
   // console.log(cat(null))
   // console.log(construct(42, [1, 2, 3]))
   // console.log(construct(null, [1, 2, 3]))
-  // console.log(mapcat((n) => construct(n, [","]), [1, 2, 3]))
+  console.log(mapcat((n) => construct(n, [","]), [1, 2, 3]))
   // const zombie = { name: "Bub", film: "Day of the Dead" }
   // console.log(_.keys(zombie))
   // console.log(_.values(zombie))
@@ -92,18 +92,18 @@ const sec2Modules = () => {
   // console.log(_.find(library, { title: "SICP", ed: 1 }))
   // console.log(_.filter(library, { title: "SICP" })
 
-  const editionResults = project(library, ["title", "isbn"])
-  console.log(editionResults)
-  const isbnResults = project(library, ["isbn"])
-  console.log(isbnResults)
-  console.log(isbnResults.map((obj) => obj.isbn))
+  // const editionResults = project(library, ["title", "isbn"])
+  // console.log(editionResults)
+  // const isbnResults = project(library, ["isbn"])
+  // console.log(isbnResults)
+  // console.log(isbnResults.map((obj) => obj.isbn))
 
-  console.log(rename({ a: 1, b: 2 }, { a: "AAA" }))
-  console.log(as(library, { ed: "edition" }))
-  console.log(project(as(library, { ed: "edition" }), ["edition"]))
-  console.log(
-    restrict(as(library, { ed: "edition" }), (book: any) => book.edition === 1),
-  )
+  // console.log(rename({ a: 1, b: 2 }, { a: "AAA" }))
+  // console.log(as(library, { ed: "edition" }))
+  // console.log(project(as(library, { ed: "edition" }), ["edition"]))
+  // console.log(
+  //   restrict(as(library, { ed: "edition" }), (book: any) => book.edition === 1),
+  // )
 }
 
 export default sec2Modules

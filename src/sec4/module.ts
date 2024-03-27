@@ -47,15 +47,15 @@ export const iterateUntil = (
 
 export const always: <T>(value: T) => () => T = (value) => () => value
 
-export const invoker = (name: string, method: () => any) => {
-  return (target: any, ...args: any[]) => {
+// メソッドを引数に取り、ターゲットとなるオブジェクトでそのメソッドを実行する関数を返す
+export const invoker =
+  (name: string, method: () => any) =>
+  (target: any, ...args: any[]) => {
     if (!existy(target)) fail("Must provide a target")
-    const targetMethod = target[name]
-    return doWhen(existy(targetMethod) && method === targetMethod, () =>
-      targetMethod.apply(target, args),
+    return doWhen(existy(target[name]) && method === target[name], () =>
+      target[name](args),
     )
   }
-}
 
 // String.substr()は非推奨なので、String.substring()を使う
 // export const uniqueString = (len: number) => {

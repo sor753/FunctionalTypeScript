@@ -1,8 +1,9 @@
 import _ from "lodash"
 
+// splat関数は、関数を受け取り、配列を受け取る関数を返す
 export function splat(fun: (...args: any[]) => any) {
   return function (array: any[]) {
-    return fun.apply(null, array)
+    return fun(...array)
   }
 }
 
@@ -72,10 +73,8 @@ export const existy = (x: any) => x != null
 export const truthy = (x: any) => x !== false && existy(x)
 
 // 条件がtrueの場合にのみアクションを実行する
-export const doWhen = (cond: any, action: () => void) => {
-  if (truthy(cond)) return action()
-  return undefined
-}
+export const doWhen = (cond: any, action: () => void) =>
+  truthy(cond) ? action() : undefined
 
 // オブジェクトが指定されたフィールドを持っている場合にのみ実行する
 export const executeIfHasField = (target: any, name: string) => {

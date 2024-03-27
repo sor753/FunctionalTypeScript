@@ -43,9 +43,9 @@ const sec4Modules = () => {
     // const g = always(function () {})
     // console.log(g() === f())
     // console.log(repeatedly(3, always("Odelay")))
-    // const rev = invoker("reverse", Array.prototype.reverse)
-    // console.log(_.map([[1, 2, 3]], rev))
-    // console.log(uniqueString(10))
+    const rev = (0, module_1.invoker)("reverse", Array.prototype.reverse);
+    console.log(lodash_1.default.map([[1, 2, 3]], rev));
+    console.log((0, module_1.uniqueString)(10));
     // const uniqueString2 = makeUniqueStringFunction()
     // console.log(uniqueString2("dari"))
     // console.log(uniqueString2("dari"))

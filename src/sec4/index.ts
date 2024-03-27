@@ -1,4 +1,4 @@
-import _, { has } from "lodash"
+import _ from "lodash"
 
 import {
   always,
@@ -57,9 +57,9 @@ const sec4Modules = () => {
   // const g = always(function () {})
   // console.log(g() === f())
   // console.log(repeatedly(3, always("Odelay")))
-  // const rev = invoker("reverse", Array.prototype.reverse)
-  // console.log(_.map([[1, 2, 3]], rev))
-  // console.log(uniqueString(10))
+  const rev = invoker("reverse", Array.prototype.reverse)
+  console.log(_.map([[1, 2, 3]], rev))
+  console.log(uniqueString(10))
   // const uniqueString2 = makeUniqueStringFunction()
   // console.log(uniqueString2("dari"))
   // console.log(uniqueString2("dari"))
