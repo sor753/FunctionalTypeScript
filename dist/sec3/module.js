@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plucker = exports.g = exports.f = exports.dynamicLookup = exports.stackUnbinder = exports.stackBinder = exports.globals = void 0;
+exports.isOdd = exports.isEven = exports.complement = exports.plucker = exports.g = exports.f = exports.dynamicLookup = exports.stackUnbinder = exports.stackBinder = exports.globals = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 exports.globals = {};
 const makeBindFun = (resolver) => {
@@ -35,3 +35,10 @@ const g = () => {
 exports.g = g;
 const plucker = (field) => (obj) => obj && obj[field];
 exports.plucker = plucker;
+const complement = (pred) => {
+    return (...args) => !pred(...args);
+};
+exports.complement = complement;
+const isEven = (n) => n % 2 === 0;
+exports.isEven = isEven;
+exports.isOdd = (0, exports.complement)(exports.isEven);

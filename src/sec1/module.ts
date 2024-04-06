@@ -42,6 +42,8 @@ export const nth = (a: any[] | string, index: number) => {
   return a[index]
 }
 
+export const second = (a: any[] | string) => nth(a, 1)
+
 const lessOrEqual = (x: number, y: number) => x <= y
 const boolToCompare = (bool: boolean) => {
   return bool ? -1 : 1

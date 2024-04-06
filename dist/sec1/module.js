@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.executeIfHasField = exports.doWhen = exports.truthy = exports.existy = exports.mergeResults = exports.selectHairColor = exports.selectAges = exports.selectNames = exports.lameCSV = exports.compareLessOrEqual = exports.nth = exports.parseAge = exports.note = exports.warn = exports.fail = exports.unsplat = exports.splat = void 0;
+exports.executeIfHasField = exports.doWhen = exports.truthy = exports.existy = exports.mergeResults = exports.selectHairColor = exports.selectAges = exports.selectNames = exports.lameCSV = exports.compareLessOrEqual = exports.second = exports.nth = exports.parseAge = exports.note = exports.warn = exports.fail = exports.unsplat = exports.splat = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 // splat関数は、関数を受け取り、配列を受け取る関数を返す
 function splat(fun) {
@@ -48,6 +48,8 @@ const nth = (a, index) => {
     return a[index];
 };
 exports.nth = nth;
+const second = (a) => (0, exports.nth)(a, 1);
+exports.second = second;
 const lessOrEqual = (x, y) => x <= y;
 const boolToCompare = (bool) => {
     return bool ? -1 : 1;

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.hasKeys = exports.validator = exports.checker = exports.doSomething = exports.defaults = exports.fnull = exports.makeUniqueStringFunction = exports.uniqueString = exports.invoker = exports.always = exports.iterateUntil = exports.repeatedly = exports.repeat = exports.best = exports.finder = void 0;
+exports.hasKeys = exports.validator = exports.checker = exports.doSomething = exports.defaults = exports.fnull = exports.makeUniqueStringFunction = exports.uniqueString = exports.rev = exports.invoker = exports.always = exports.iterateUntil = exports.repeatedly = exports.repeat = exports.best = exports.finder = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 const module_1 = require("../sec1/module");
 const finder = (valueFun, bestFun, coll) => {
@@ -51,6 +51,7 @@ const invoker = (name, method) => (target, ...args) => {
     return (0, module_1.doWhen)((0, module_1.existy)(target[name]) && method === target[name], () => target[name](args));
 };
 exports.invoker = invoker;
+exports.rev = (0, exports.invoker)("reverse", Array.prototype.reverse);
 // String.substr()は非推奨なので、String.substring()を使う
 // export const uniqueString = (len: number) => {
 //   return Math.random().toString(36).substr(2, len)

@@ -57,6 +57,8 @@ export const invoker =
     )
   }
 
+export const rev = invoker("reverse", Array.prototype.reverse)
+
 // String.substr()は非推奨なので、String.substring()を使う
 // export const uniqueString = (len: number) => {
 //   return Math.random().toString(36).substr(2, len)

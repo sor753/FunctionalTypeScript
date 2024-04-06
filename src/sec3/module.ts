@@ -33,3 +33,10 @@ export const g = () => {
 
 export const plucker = (field: string) => (obj: { [key in string]: any }) =>
   obj && obj[field]
+
+export const complement = (pred: (...args: any[]) => boolean) => {
+  return (...args: any[]) => !pred(...args)
+}
+
+export const isEven = (n: number) => n % 2 === 0
+export const isOdd = complement(isEven)
