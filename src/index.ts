@@ -5,6 +5,7 @@ import sec3Modules from "./sec3"
 import sec4Modules from "./sec4"
 import sec5Modules from "./sec5"
 import sec6Modules from "./sec6"
+import sec7Modules from "./sec7"
 
 // _.times(4, () => {
 //   console.log("Hello, world!")
@@ -15,4 +16,5 @@ import sec6Modules from "./sec6"
 // sec3Modules()
 // sec4Modules()
 // sec5Modules()
-sec6Modules()
+// sec6Modules()
+sec7Modules()

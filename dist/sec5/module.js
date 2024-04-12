@@ -3,10 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.flowedMapcat = exports.condition = exports.condition1 = exports.partial = exports.partial2 = exports.partial1 = exports.divPart = exports.curry3 = exports.curry2 = exports.curry = exports.performTrialCommand = exports.performAdminCommand = exports.performCommand = exports.isa = exports.shutdown = exports.alert = exports.changeView = exports.notify = exports.stringReverse = exports.dispatch = void 0;
+exports.sqrPost = exports.flowedMapcat = exports.condition = exports.condition1 = exports.partial = exports.partial2 = exports.partial1 = exports.divPart = exports.curry3 = exports.curry2 = exports.curry = exports.performTrialCommand = exports.performAdminCommand = exports.performCommand = exports.isa = exports.shutdown = exports.alert = exports.changeView = exports.notify = exports.stringReverse = exports.dispatch = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 const module_1 = require("../sec1/module");
 const module_2 = require("../sec2/module");
+const module_3 = require("../sec4/module");
 /**
  * dispatch関数は、複数の関数を受け取り、ターゲットオブジェクトと引数を渡して順番に実行します。
  * 各関数はターゲットオブジェクトと引数を受け取り、処理を行います。
@@ -85,3 +86,4 @@ const condition = (...validators) => (fun, ...args) => {
 };
 exports.condition = condition;
 exports.flowedMapcat = lodash_1.default.flow(lodash_1.default.map, (0, module_1.splat)(module_2.cat));
+exports.sqrPost = (0, exports.condition1)((0, module_3.validator)("結果は数値である必要があります", lodash_1.default.isNumber));
