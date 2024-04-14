@@ -115,3 +115,11 @@ export const flowedMapcat = _.flow(_.map, splat(cat))
 export const sqrPost = condition1(
   validator("結果は数値である必要があります", _.isNumber),
 )
+
+const zero = validator("0で割ることはできません", (n: number) => n !== 0)
+const number = validator("引数は数値である必要があります", _.isNumber)
+export const sqr = (n: number) => {
+  if (!number(n)) fail("引数が数値ではありません")
+  if (!zero(n)) fail("0で割ることはできません")
+  return n * n
+}

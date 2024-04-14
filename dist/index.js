@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const sec7_1 = __importDefault(require("./sec7"));
+const sec8_1 = __importDefault(require("./sec8"));
 // _.times(4, () => {
 //   console.log("Hello, world!")
 // })
@@ -13,4 +13,5 @@ const sec7_1 = __importDefault(require("./sec7"));
 // sec4Modules()
 // sec5Modules()
 // sec6Modules()
-(0, sec7_1.default)();
+// sec7Modules()
+(0, sec8_1.default)();

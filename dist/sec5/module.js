@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sqrPost = exports.flowedMapcat = exports.condition = exports.condition1 = exports.partial = exports.partial2 = exports.partial1 = exports.divPart = exports.curry3 = exports.curry2 = exports.curry = exports.performTrialCommand = exports.performAdminCommand = exports.performCommand = exports.isa = exports.shutdown = exports.alert = exports.changeView = exports.notify = exports.stringReverse = exports.dispatch = void 0;
+exports.sqr = exports.sqrPost = exports.flowedMapcat = exports.condition = exports.condition1 = exports.partial = exports.partial2 = exports.partial1 = exports.divPart = exports.curry3 = exports.curry2 = exports.curry = exports.performTrialCommand = exports.performAdminCommand = exports.performCommand = exports.isa = exports.shutdown = exports.alert = exports.changeView = exports.notify = exports.stringReverse = exports.dispatch = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 const module_1 = require("../sec1/module");
 const module_2 = require("../sec2/module");
@@ -87,3 +87,13 @@ const condition = (...validators) => (fun, ...args) => {
 exports.condition = condition;
 exports.flowedMapcat = lodash_1.default.flow(lodash_1.default.map, (0, module_1.splat)(module_2.cat));
 exports.sqrPost = (0, exports.condition1)((0, module_3.validator)("結果は数値である必要があります", lodash_1.default.isNumber));
+const zero = (0, module_3.validator)("0で割ることはできません", (n) => n !== 0);
+const number = (0, module_3.validator)("引数は数値である必要があります", lodash_1.default.isNumber);
+const sqr = (n) => {
+    if (!number(n))
+        (0, module_1.fail)("引数が数値ではありません");
+    if (!zero(n))
+        (0, module_1.fail)("0で割ることはできません");
+    return n * n;
+};
+exports.sqr = sqr;
