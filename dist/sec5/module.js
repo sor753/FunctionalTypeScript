@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sqr = exports.sqrPost = exports.flowedMapcat = exports.condition = exports.condition1 = exports.partial = exports.partial2 = exports.partial1 = exports.divPart = exports.curry3 = exports.curry2 = exports.curry = exports.performTrialCommand = exports.performAdminCommand = exports.performCommand = exports.isa = exports.shutdown = exports.alert = exports.changeView = exports.notify = exports.stringReverse = exports.dispatch = void 0;
+exports.sqr = exports.sqrPost = exports.flowedMapcat = exports.condition = exports.condition1 = exports.partial = exports.partial2 = exports.partial1 = exports.divPart = exports.curry3 = exports.curry2 = exports.curry = exports.performTrialCommand = exports.performAdminCommand = exports.performCommand = exports.isa = exports.shutdown = exports.alert = exports.changeView = exports.notify = exports.stringReverse = exports.str = exports.dispatch = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 const module_1 = require("../sec1/module");
 const module_2 = require("../sec2/module");
@@ -24,6 +24,7 @@ const dispatch = (...funs) => (target, ...args) => {
     return ret;
 };
 exports.dispatch = dispatch;
+exports.str = (0, exports.dispatch)((0, module_3.invoker)("toString", Array.prototype.toString), (0, module_3.invoker)("toString", String.prototype.toString));
 const stringReverse = (str) => lodash_1.default.isString(str) ? str.split("").reverse().join("") : undefined;
 exports.stringReverse = stringReverse;
 const notify = (msg) => {

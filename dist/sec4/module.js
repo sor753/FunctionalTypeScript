@@ -48,7 +48,8 @@ exports.always = always;
 const invoker = (name, method) => (target, ...args) => {
     if (!(0, module_1.existy)(target))
         (0, module_1.fail)("Must provide a target");
-    return (0, module_1.doWhen)((0, module_1.existy)(target[name]) && method === target[name], () => target[name](args));
+    const targetMethod = target[name];
+    return (0, module_1.doWhen)((0, module_1.existy)(targetMethod) && method === targetMethod, () => targetMethod.apply(target, args));
 };
 exports.invoker = invoker;
 exports.rev = (0, exports.invoker)("reverse", Array.prototype.reverse);

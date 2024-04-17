@@ -52,8 +52,11 @@ export const invoker =
   (name: string, method: () => any) =>
   (target: any, ...args: any[]) => {
     if (!existy(target)) fail("Must provide a target")
-    return doWhen(existy(target[name]) && method === target[name], () =>
-      target[name](args),
+
+    const targetMethod = target[name]
+
+    return doWhen(existy(targetMethod) && method === targetMethod, () =>
+      targetMethod.apply(target, args),
     )
   }
 

@@ -1,7 +1,7 @@
 import _ from "lodash"
 import { existy, fail, splat } from "../sec1/module"
 import { cat, complement, mapcat } from "../sec2/module"
-import { validator } from "../sec4/module"
+import { invoker, validator } from "../sec4/module"
 /**
  * dispatch関数は、複数の関数を受け取り、ターゲットオブジェクトと引数を渡して順番に実行します。
  * 各関数はターゲットオブジェクトと引数を受け取り、処理を行います。
@@ -19,6 +19,11 @@ export const dispatch =
     }, undefined)
     return ret
   }
+
+export const str = dispatch(
+  invoker("toString", Array.prototype.toString),
+  invoker("toString", String.prototype.toString),
+)
 
 export const stringReverse = (str: string) =>
   _.isString(str) ? str.split("").reverse().join("") : undefined
